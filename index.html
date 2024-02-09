@@ -11,7 +11,7 @@
 
   <body>
 
-    <!-- Simple navigation bar displaying logo and favorites button -->
+    <!-- Navigation bar displaying logo and favorites button -->
 <nav class="bg-white shadow">
   <div class="mx-auto max-w-7xl px-4">
     <div class="flex h-16 justify-between">
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="hidden sm:ml-6 sm:flex sm:items-center">
-        <button type="button" class="relative p-1">
+        <button type="button" id="allFavorites" class="relative p-1">
           <span class="sr-only">View favorites</span>
          <img class="h-8 w-auto" src="./assets/icons/heart.png" alt="Heart Icon">
         </button>
@@ -34,7 +34,7 @@
 
 <!-- Header section text -->
 <div class="flex flex-col items-center mx-auto text-center max-w-3xl">
-  <h1 class="text-6xl font-bold text-emerald-800 mt-14">The search for your new<br>friend starts here.</h1>
+  <h1 class="text-6xl font-bold text-emerald-700 mt-14">The search for your new<br>friend starts here.</h1>
   <p class="w-2/3 mt-8">Looking to add a pup to your family? Enter the breed you are interested in below to
     get more information on the breed, and view dogs that are available now for adoption!
   </p>
@@ -44,22 +44,28 @@
 <div class="flex justify-center mt-8">
   <div class="items-center space-x-2">
     <form id="breedTypeForm">
-    <label for="breedType" class="leading-6 text-gray-900">Enter a Breed:</label>
-    <input type="text" name="breed" id="breedType" class="rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6 p-2" placeholder="Poodle">
+    <label for="breedInput" class="leading-6 text-gray-900">Enter a Breed:</label>
+    <input type="text" name="breed" id="breedInput" class="rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6 p-2" placeholder="Poodle">
     </form>  
 </div>
 </div>
 
 <!-- Breed facts will display in this section from Dog Facts API -->
-<section class="bg-emerald-700 w-full h-56 shadow">
-<h3 class="text-white font-bold text-2xl text-center mt-14 p-5" id="infoHeader">Learn More</h3>
-<div class="border bg-white max-w-5xl mx-auto p-4 rounded-lg w-3/5 h-auto">
-    <p class="text-center" id="infoBody">PLACEHOLDER - Breed information/facts will go here.</p>
+<section class=" bg-emerald-700 w-full h-56 shadow mt-14">
+<h3 class="hidden text-white font-bold text-3xl text-center p-8" id="infoHeader">Learn More</h3>
+<div class="hidden border bg-white max-w-5xl mx-auto p-4 rounded-lg w-3/5 h-auto" id="factsBox">
+    <p class="hidden text-center" id="infoBody">PLACEHOLDER - Breed information/facts will go here.</p>
 </div>
 </section>
 
 
-
+<!-- Footer -->
+<footer class="bg-emerald-700 h-20 flex items-center">
+<div class="mx-auto max-w-7xl px-4 text-center">
+      <p class="text-sm text-white">Dog Adoption Finder 2024</p>
+      <p class="text-sm text-white">Group project completed by Angel, Jordan, and Nicole</p>
+      </div>
+</footer>
 
 <!-- JavaScript files -->
     <script src="./assets/js/nicole.js"></script>
