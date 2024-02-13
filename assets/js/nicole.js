@@ -22,6 +22,21 @@ function handleForm(event) {
 
 breedTypeForm.addEventListener("submit", handleForm);
 
+// Favorites modal functionality open & close
+document.addEventListener("DOMContentLoaded", (event) => {
+  var allFavoritesButton = document.getElementById("allFavorites");
+  var favoritesModal = document.getElementById("favoritesModal");
+  var closeModal = document.getElementById("closeModal");
+
+  allFavoritesButton.addEventListener("click", function () {
+    favoritesModal.classList.remove("hidden");
+  });
+
+  closeModal.addEventListener("click", function () {
+    favoritesModal.classList.add("hidden");
+  });
+});
+
 // Saving "favorites" to local storage
 document.querySelectorAll(".saveFavorite").forEach((button) => {
   button.addEventListener("click", function () {
@@ -29,6 +44,3 @@ document.querySelectorAll(".saveFavorite").forEach((button) => {
     localStorage.setItem("saveFavorite", JSON.stringify(saveFavorite));
   });
 });
-
-// Retrieving local storage items to display when user views their favorites
-document.getElementById("allFavorites");

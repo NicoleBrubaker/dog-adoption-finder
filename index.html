@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
     <!-- Installing Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Group Project 1</title>
@@ -29,7 +28,43 @@
          <img class="h-8 w-auto" src="./assets/icons/heart.png" alt="Heart Icon">
         </button>
     </div>
+
+    <!-- Favorites Modal -->
+<div id="favoritesModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
+  <div class="relative top-20 mx-auto p-5 border w-3/5 shadow-lg rounded-md bg-white">
+    <div class="flex justify-between items-center">
+      <h3 class="text-lg leading-6 font-semibold text-xl text-emerald-800">Favorites</h3>
+      <button type="button" id="closeModal" class="text-gray-700 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center">
+        <span class="sr-only">Close</span>
+        X
+      </button>
+    </div>
+      <div class="flex flex-col">
+        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div class="py-2 align-middle inline-block min-w-full lg:px-8">
+            <div class="overflow-hidden border-b border-gray-200 sm:rounded-lg">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                    <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">URL</th>
+                  </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                  <!-- Rows Placeholder -->
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Placeholder Name</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Placeholder URL</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
+</div>
+</div>
 </nav>
 
 <!-- Header section text -->
