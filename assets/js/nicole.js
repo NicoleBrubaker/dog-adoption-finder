@@ -5,6 +5,7 @@ var adoptionSection = document.getElementById("adoptionSection");
 var factsBox = document.getElementById("factsBox");
 var infoBody = document.getElementById("infoBody");
 var adoptionHeader = document.getElementById("adoptionHeader");
+var learnMorePTag = document.getElementById("learnMorePTag");
 
 function handleForm(event) {
   event.preventDefault();
@@ -18,6 +19,7 @@ function handleForm(event) {
   infoBody.classList.remove("hidden");
   adoptionHeader.classList.remove("hidden");
   adoptionSection.classList.remove("hidden");
+  learnMorePTag.classList.remove("hidden");
 }
 
 breedTypeForm.addEventListener("submit", handleForm);

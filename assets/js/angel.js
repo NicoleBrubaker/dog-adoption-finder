@@ -32,8 +32,6 @@ const apiUrl = 'https://api.petfinder.com/v2/types/dog/breeds';
      });
        }
      }
-   
-    
 
      // Initial display of all breeds
      displayBreeds(breeds);
