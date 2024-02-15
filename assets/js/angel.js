@@ -1,68 +1,94 @@
-const apiKeytoken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJDMThhZlhBQk5kUmlaenZnZXNGQUVYRHJQUUs3TjRnV2lrQ3dDYVpCYnRmSjRsUkFhSSIsImp0aSI6IjVlZjlhZTE4MWRlMDM3ZTFmMGRmY2E2OWM1ZWM5YmFlZTI3MDgwNzU5OGM4MzU0NzZlODk5NTI2MWRiMzIzODcyZjE0MTE0ZDU5YmZmODdiIiwiaWF0IjoxNzA3OTY3NzU3LCJuYmYiOjE3MDc5Njc3NTcsImV4cCI6MTcwNzk3MTM1Nywic3ViIjoiIiwic2NvcGVzIjpbXX0.So9DV7-0lHJyomcw1_3cWDuvk8NBtXYnBjwRWuFb4-HvGsSU9Dv6hEgOK7uID2Kzt3tHnOMqyHL37JGV2H1n2CsI5jIqPCveNKp9J1FZkNXs3J4b03PnoPHg7RCebQtDhdUvdsJJfBJoYHspwqOF29kUxKyWZJg9Z31mNlKGn3C85e9RGELUXBQGbiGygtjGCbYpwK4S8e4jw23Kk-H6AB057Gc1CVn3LnzvB93DTyUlwuhpi0tiPhAWxjudORKe6nWSmxTpTBRB84dXOHUWqvcosgWE86rlSMpp4zN_hAMEkcNi21bU8ErCIGcB2NKVYHFRFQt1H-IbimX562Wl3A';
-const breedsapiUrl = 'https://api.petfinder.com/v2/types/dog/breeds';
-const searchBtn = document.getElementById('searchpets');
-const breedInputEl = document.getElementById('breedInput');
-const dogLink = document.getElementById('dogLink1');
+const apiKeytoken =
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJDMThhZlhBQk5kUmlaenZnZXNGQUVYRHJQUUs3TjRnV2lrQ3dDYVpCYnRmSjRsUkFhSSIsImp0aSI6ImM1YTg3ODYxZWEwYzIwNWNhNDQyZjhhOTcwYzU0ZTc0OWY1YWM3MGM0NGNmMzRjMjRlOTMzOTQ2NDEzN2Q1MDM4NDBmOTU5MjAwYzhjOTk1IiwiaWF0IjoxNzA4MDIxODU1LCJuYmYiOjE3MDgwMjE4NTUsImV4cCI6MTcwODAyNTQ1NSwic3ViIjoiIiwic2NvcGVzIjpbXX0.uJvBKUV4eWxxDMeQDfCPHr78ck6buSiYAbEtKw1APvO-Oh6CCb67bT9zdwI9JCfaU8zguKN3Z_Esgdz2Mz6jLTe0tWf5A_I-UUkL_gPm11u2xr3T7LmOrO8HSoTMjaqxk8p5ti_t0qSwY7qsRC_0fIWDZb4BMxoOqw0FpA4x8KwyNAI1SZAXVPqDrc54ACWAaqA-wHrVtSAJ-E6gygQax7Kp6wo2fR7aywhntqfESrQKv4sIQ3-1eXbSdoXs7HWtu2j896SDKqfnQd6hPuh6CUruDAPjmT_HY1El7_o5f9TjhbWD-rQeq5fL12X3GKthOD0hqpw99nXyebgW1dZBgg";
+const breedsapiUrl = "https://api.petfinder.com/v2/types/dog/breed";
+const searchBtn = document.getElementById("searchpets");
+const breedInputEl = document.getElementById("breedInput");
+const dogLink = document.getElementById("dogLink1");
 
 // Function to open Petfinder URL for a specific breed
 function openPetfinderUrl(breedName) {
-  const petfinderUrl = `https://www.petfinder.com/dog-breeds/${breedName}`;
+  const petfinderUrl = `https://www.petfinder.com/dog-breed/${breedName}`;
   // console.log('Opening Petfinder URL:', petfinderUrl);
   // window.open(petfinderUrl, '_blank');
-  
-  fetch('https://api.petfinder.com/v2/animals?type=dog&breeds=' + breedInputEl.value, {
-  headers: {
-    'Authorization': "Bearer " + apiKeytoken
-  }
-})
-//   fetch(petfinderUrl, {
-//   headers: {
-//     'Authorization': `Bearer ${apiKey}`
-//   }
-// })
-  .then(response => {
-    console.log(response)
-    if(response.status===401) {
-      fetchaccesstoken()
+
+  fetch(
+    `https://api.petfinder.com/v2/animals?type=dog&breed=` + breedInputEl.value,
+    {
+      headers: {
+        Authorization: "Bearer " + apiKeytoken,
+      },
     }
-    response.json();
-  } )
-  
-  .then(data => {
-    const breeds = data.breeds;
-    console.log(data.breeds);
- 
-  })
-  .catch(error => {
-    console.error('Error fetching breeds:', error);
-  });
+  )
+    .then((response) => {
+      if (response.status === 401) {
+        fetchaccesstoken();
+      }
+      return response.json();
+    })
+
+    .then((data) => {
+      // Filters out to only grab dogs with photos
+      const animalsWithPhotos = data.animals.filter(
+        (animal) => animal.photos && animal.photos.length > 0
+      );
+      dogCard1(animalsWithPhotos[0]);
+      dogCard2(animalsWithPhotos[1]);
+      dogCard3(animalsWithPhotos[2]);
+    });
+}
+
+// Displaying info for first dog card
+function dogCard1(data) {
+  document.getElementById("dogPhoto1").src = data.photos[0].large;
+  document.getElementById("dogName1").textContent = `${data.name}`;
+  document.getElementById(
+    "dogBreed1"
+  ).textContent = `Breed: ${data.breeds.primary}`;
+  document.getElementById("dogGender1").textContent = `Gender: ${data.gender}`;
+  document.getElementById("dogAge1").textContent = `Age: ${data.age}`;
+  document.getElementById("dogLink1").href = data.url;
+}
+
+// Displaying info for second dog card
+function dogCard2(data) {
+  document.getElementById("dogPhoto2").src = data.photos[0].large;
+  document.getElementById("dogName2").textContent = `${data.name}`;
+  document.getElementById(
+    "dogBreed2"
+  ).textContent = `Breed: ${data.breeds.primary}`;
+  document.getElementById("dogGender2").textContent = `Gender: ${data.gender}`;
+  document.getElementById("dogAge2").textContent = `Age: ${data.age}`;
+  document.getElementById("dogLink2").href = data.url;
+}
+
+// Displaying info for third dog card
+function dogCard3(data) {
+  document.getElementById("dogPhoto3").src = data.photos[0].large;
+  document.getElementById("dogName3").textContent = `${data.name}`;
+  document.getElementById(
+    "dogBreed3"
+  ).textContent = `Breed: ${data.breeds.primary}`;
+  document.getElementById("dogGender3").textContent = `Gender: ${data.gender}`;
+  document.getElementById("dogAge3").textContent = `Age: ${data.age}`;
+  document.getElementById("dogLink3").href = data.url;
 }
 
 // Event listener for clicks on dog photos
-function handleSearch(event){
- // event.preventDefault()
- //  if (event.target.classList.contains('dog-photo')) {
-    event.preventDefault(); // Prevent the default behavior of the anchor tag
-    const breedName = breedInputEl.value.trim().toLowerCase().replace(/\s+/g, '-');
-    openPetfinderUrl(breedName);
-//  }
+function handleSearch(event) {
+  // event.preventDefault()
+  //  if (event.target.classList.contains('dog-photo')) {
+  event.preventDefault(); // Prevent the default behavior of the anchor tag
+  const breedName = breedInputEl.value
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "-");
+  openPetfinderUrl(breedName);
+  //  }
 }
- 
 
 breedTypeForm.addEventListener("submit", handleSearch);
 
-
-var dogCardLink = function(){
-
-
-var dogLink = `https://www.petfinder.com/dogs-breeds/${breedName}`;
-}
-
-// Fetch breeds from Petfinder API
-
-
-
-// //  fetch access token in console
+//  fetch access token in console
 
 //   function fetchaccesstoken(){
 //     fetch('https://api.petfinder.com/v2/oauth2/token', {
@@ -77,6 +103,5 @@ var dogLink = `https://www.petfinder.com/dogs-breeds/${breedName}`;
 // apiKeytoken = data.access_token})
 
 //   }
-
 
 //   fetchaccesstoken()
