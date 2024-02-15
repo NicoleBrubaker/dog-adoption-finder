@@ -9,7 +9,6 @@ var learnMorePTag = document.getElementById("learnMorePTag");
 
 function handleForm(event) {
   event.preventDefault();
-  console.log(breedInput.value);
   // Inserting the breed input value into section title content
   infoHeader.textContent = `Learn more about ${breedInput.value}'s.`;
   adoptionHeader.textContent = `${breedInput.value}s ready for a home!`;
@@ -42,7 +41,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 // Saving "favorites" to local storage
 document.querySelectorAll(".saveFavorite").forEach((button) => {
   button.addEventListener("click", function () {
-    console.log("Save to favorites");
     localStorage.setItem("saveFavorite", JSON.stringify(saveFavorite));
   });
 });
