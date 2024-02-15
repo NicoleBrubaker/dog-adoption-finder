@@ -1,7 +1,8 @@
-const apiKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJDMThhZlhBQk5kUmlaenZnZXNGQUVYRHJQUUs3TjRnV2lrQ3dDYVpCYnRmSjRsUkFhSSIsImp0aSI6ImI3ZjA4MGYwZjgxMjNkYWQ5YmE4M2QyMGFjOTM2YjA2YmNkOGFlYWExNjQ1ZGFiY2ExMWIxOTA5NDIxMGNkMjMwMjFjN2I0NDljNTEwMTU5IiwiaWF0IjoxNzA3OTU5NDAxLCJuYmYiOjE3MDc5NTk0MDEsImV4cCI6MTcwNzk2MzAwMSwic3ViIjoiIiwic2NvcGVzIjpbXX0.CpPb5fyAhIB35S5ARcJ9UcH8XnYxD8gaUAp7aNZgQ-14bzEAdpbZRUdHZurQCD1smEcPPFBFzKBHNMS2hd7hwAp7eWqJ6eGS06frqkuJVr1gK6wVtJCVVYUYs1W4dokNq9O03XbGtLFQi5iHwu1RZlvu0tsYyYRQy5ZS7-jVRcQGAB2TWwEmML4YCEnlvMvj00o_Oe5Uvq6HHHTvzSitAn2w-orQkctSL7QphVyXMDh2iBpALsAja5S0DkWKj2z-p6eUun37IG2niksPlTfP1eqUm2cfIRpW197gHO1Xm_vdNf9Jg61-0w3LBMG7c4NeAq8paM21evbNwUFWk8ROjQ';
-const apiUrl = 'https://api.petfinder.com/v2/types/dog/breeds';
+const apiKeytoken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJDMThhZlhBQk5kUmlaenZnZXNGQUVYRHJQUUs3TjRnV2lrQ3dDYVpCYnRmSjRsUkFhSSIsImp0aSI6ImYyNTliNzE3YTMxMjdkOWYxNDQxMjU5MTc4MWUyZDhmNjhjNTZlZmE2ZGFmZWNiY2MyMzkwY2NhNjVlZGQ1NDFjYWQ4NjI2YjUyMWU2NThkIiwiaWF0IjoxNzA3OTYzOTE5LCJuYmYiOjE3MDc5NjM5MTksImV4cCI6MTcwNzk2NzUxOSwic3ViIjoiIiwic2NvcGVzIjpbXX0.kIeVggu-6JyxE-kaa20ezw6fio-fFIIn6xtnDfvBjpVvRl0TN0d0rejkvGr2FGafbkI1JLSLC3wcDuelwgTOQ0OcGR1xyuy-ifg5wkQWEpBWwNw0lHAW8K9ilV2zLXsPJcD9zyLfP5BX8qP8tHeF4MiPjZO6okCsBOAET8xhMgRQmwz3vSMTp9d7iRvnKS0eTM0uKCHE3GLVkqc0GT5uFYmqi_kcEySoCgWLnPI3K-ks1ne4olwIiAEAw8SizZGgltOk9UhP1FoNkA1qDQqY6IC6FNtMC9AEakui3J_MPBRlAMpLd4afJ8mEC2TRunukkZzpudoIEBkLvWD2atElhA';
+const breedsapiUrl = 'https://api.petfinder.com/v2/types/dog/breeds';
 const searchBtn = document.getElementById('searchpets');
 const breedInputEl = document.getElementById('breedInput');
+const dogLink = document.getElementById('dogLink1');
 
 // Function to open Petfinder URL for a specific breed
 function openPetfinderUrl(breedName) {
@@ -9,9 +10,9 @@ function openPetfinderUrl(breedName) {
   // console.log('Opening Petfinder URL:', petfinderUrl);
   // window.open(petfinderUrl, '_blank');
   
-  fetch('https://api.petfinder.com/v2/animals?type=dog', {
+  fetch('https://api.petfinder.com/v2/animals?type=dog&breeds=' + breedInputEl.value, {
   headers: {
-    'Authorization': "Bearer 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJDMThhZlhBQk5kUmlaenZnZXNGQUVYRHJQUUs3TjRnV2lrQ3dDYVpCYnRmSjRsUkFhSSIsImp0aSI6IjZlNzk2ZDY5OGI0OWM4ZmFkMzEzZjcxZDIwNzBiYTVjOGIxOWM1ZjUxM2Q3NTcwY2QxMjE2NDUzN2I0OGI0NGQwZTkyZmZhMTNiOGNiNDQxIiwiaWF0IjoxNzA3OTM2MTk5LCJuYmYiOjE3MDc5MzYxOTksImV4cCI6MTcwNzkzOTc5OSwic3ViIjoiIiwic2NvcGVzIjpbXX0.ZTWP04CktJ9kXPvfvJMxIp7PGCmqGoUAsuje94P6Cru4ngc_ntNrX6DCpJ3p1wexrGNODwaMW89VPenlCl_kus4kDjHlD8_jy5l6WblzDkJ1SXbqT0YQLtYdfAanH-ZCDHX6__XflT3wFFuJykzCSw2KwANlAX3UUO-XTuo2rePtc1k7ZTgBqESrNW2Lpbe9hi52xO0MkhL7aMyHiKGWLX-FlXzEfxnZTVv5lKiyJSSiisesenJ-gFEwd_zyjNbFTmontVLCfZrdZXGNuUXz42N6k3jGqMHJz4S6vNjyM-yv-2Yd7ybyFVJ4xOvFnQ-7aGfHuZFTU4u8rnZ-2P6OOg';\n"
+    'Authorization': "Bearer " + apiKeytoken
   }
 })
 //   fetch(petfinderUrl, {
@@ -19,11 +20,18 @@ function openPetfinderUrl(breedName) {
 //     'Authorization': `Bearer ${apiKey}`
 //   }
 // })
-  .then(response => response.json())
+  .then(response => {
+    console.log(response)
+    if(response.status===401) {
+      fetchaccesstoken()
+    }
+    response.json();
+  } )
+  
   .then(data => {
     const breeds = data.breeds;
-    console.log(data);
-    // You can do something with the breeds here if needed
+    console.log(data.breeds);
+ 
   })
   .catch(error => {
     console.error('Error fetching breeds:', error);
@@ -43,11 +51,18 @@ function handleSearch(event){
 
 breedTypeForm.addEventListener("submit", handleSearch);
 
+
+var dogCardLink = function(){
+
+
+var dogLink = `https://www.petfinder.com/dogs-breeds/${breedName}`;
+}
+
 // Fetch breeds from Petfinder API
 
 
 
-  // fetch access token in console
+// //  fetch access token in console
 
 //   function fetchaccesstoken(){
 //     fetch('https://api.petfinder.com/v2/oauth2/token', {
@@ -58,7 +73,10 @@ breedTypeForm.addEventListener("submit", handleSearch);
 //     'client_secret': 'F9fMYv1CtxFmx7foLXmkuubzVTF6u11fOgSeQq6i'
 //   })
 // }).then(res=> res.json())
-// .then(data => {console.log(data)})
+// .then(data => {console.log(data)
+// apiKeytoken = data.access_token})
+
 //   }
+
 
 //   fetchaccesstoken()
