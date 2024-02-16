@@ -26,4 +26,4 @@ GitHub Repo: https://github.com/NicoleBrubaker/dog-adoption-finder
 
 Live Site: https://nicolebrubaker.github.io/dog-adoption-finder/
 
-![Site Screenshot](image-1.png)
+![Site Screenshot](image.png)

@@ -46,14 +46,18 @@
                 <thead class="bg-gray-50">
                   <tr>
                     <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                    <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Breed</th>
                     <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">URL</th>
+                    <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider"></th>
+
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
                   <!-- Rows Placeholder -->
                   <tr>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">Placeholder Name</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Placeholder URL</td>
+                    <td id="favoritesName" class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
+                    <td id="favoritesBreed" class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"></td>
+                    <td id="favoritesURL" class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
                   </tr>
                 </tbody>
               </table>
@@ -102,43 +106,47 @@
 
       <!-- First card -->
         <div class="flex-1 bg-stone-50 border border-emerald-800 rounded-lg overflow-hidden shadow-md shadow-emerald-700 relative">
-
-          </a>
-           <div class="p-4">
-        <h3 id="dogName1" class="text-lg font-bold">Dog's Name</h3>
-        <p id="dogBreed1" class="text-gray-600">Breed: Breed Here</p>
-        <p id="dogAge1" class="text-gray-600">Age: Age Here</p>
+          <a id="dogLink1" href="" target="_blank" class="dog-link">
+            <img id="dogPhoto1" src="" alt="Dog" class="w-full h-48 object-cover object-center dog-photo" />
+          </a> 
+          <div class="p-4">
+        <h3 id="dogName1" class="text-lg font-bold"></h3>
+        <p id="dogBreed1" class="text-gray-600"></p>
+        <p id="dogGender1" class="text-gray-600"></p>
+        <p id="dogAge1" class="text-gray-600"></p>
     </div>
     <button class="saveFavorite absolute bottom-4 right-4 w-8 h-8 flex items-center justify-center p-0">
-        <img src="./assets/icons/heart.png" alt="Favorite" class="w-full h-full">
+        <img src="./assets/icons/heart.png" alt="Favorite" class="w-full h-full hover:-translate-y-0.5">
     </button>
 </div>
         <!-- Second card -->
         <div class="flex-1 bg-stone-50 border border-emerald-800 rounded-lg overflow-hidden shadow-md shadow-emerald-700 relative">
-          <a id="dogLink2" href="https://www.petfinder.com/dog-breeds/pug" target="_blank" class="dog-link">
-            <img id="dogPhoto2" src="https://showsightmagazine.com/wp-content/uploads/2021/07/22-1.jpg" alt="Dog" class="w-full h-48 object-cover object-center dog-photo" />
+          <a id="dogLink2" href="" target="_blank" class="dog-link">
+            <img id="dogPhoto2" src="" alt="Dog" class="w-full h-48 object-cover object-center dog-photo" />
           </a>            
           <div class="p-4">
-                <h3 id="dogName2" class="text-lg font-bold">Dog's Name</h3>
-                <p id="dogBreed2" class="text-gray-600">Breed: Breed Here</p>
-                <p id="dogAge2" class="text-gray-600">Age: Age Here</p>
+                <h3 id="dogName2" class="text-lg font-bold"></h3>
+                <p id="dogBreed2" class="text-gray-600"></p>
+        <p id="dogGender2" class="text-gray-600"></p>
+        <p id="dogAge2" class="text-gray-600"></p>
             </div>
             <button class="saveFavorite absolute bottom-4 right-4 w-8 h-8 flex items-center justify-center p-0">
-        <img src="./assets/icons/heart.png" alt="Favorite" class="w-full h-full">
+        <img src="./assets/icons/heart.png" alt="Favorite" class="w-full h-full hover:-translate-y-0.5 " />
     </button>
         </div>
         <!-- Third card -->
         <div class="flex-1 bg-stone-50 border border-emerald-800 rounded-lg overflow-hidden shadow-md shadow-emerald-700 relative">
-          <a id="dogLink3" href="https://www.petfinder.com/dog-breeds/pug" target="_blank" class="dog-link">
-            <img id="dogPhoto3" src="https://boogiethepug.com/wp-content/uploads/2018/07/Boogie2018_0005_COVER.jpg" alt="Dog" class="w-full h-48 object-cover object-center dog-photo" />
+          <a id="dogLink3" href="" target="_blank" class="dog-link">
+            <img id="dogPhoto3" src="" alt="Dog" class="w-full h-48 object-cover object-center dog-photo" />
           </a>            
           <div class="p-4">
-                <h3 id="dogName3" class="text-lg font-bold">Dog's Name</h3>
-                <p id="dogBreed3" class="text-gray-600">Breed: Breed Here</p>
-                <p id="dogAge3" class="text-gray-600">Age: Age Here</p>
+                <h3 id="dogName3" class="text-lg font-bold"></h3>
+                <p id="dogBreed3" class="text-gray-600"></p>
+        <p id="dogGender3" class="text-gray-600"></p>
+        <p id="dogAge3" class="text-gray-600"></p>
             </div>
             <button class="saveFavorite absolute bottom-4 right-4 w-8 h-8 flex items-center justify-center p-0">
-        <img src="./assets/icons/heart.png" alt="Favorite" class="w-full h-full">
+        <img src="./assets/icons/heart.png" alt="Favorite" class="w-full h-full hover:-translate-y-0.5">
     </button>
         </div>
     </div>
